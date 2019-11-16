@@ -1,0 +1,15 @@
+1. mulai buka browser
+2. username dan password ditentukan admin
+2. login dengan username dan password
+3. validasi
+   a. login berhasil
+   b. login failed kembali ke form login
+4. login berhasil,
+5.  membuat post
+6. hasil post
+7. comment/close
+   a.comment 
+   b.close
+8. close
+
+   

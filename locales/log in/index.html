@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/datepicker.css">
+</head>
+	<body>
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-md-11">
+				<div class="card">
+					<div class="card-header"><h1 id="nama"></h1></div>
+					<div class="card-body">
+						  <form action="index.html" id="reset">
+						   <input type="file" accept="image/*"  onchange="tampilkanPreview(this,'preview')" />
+					           <div class="form-group">
+					              <label for="judul">judul</label>
+					              <input type="text" class="form-control" id="judul" placeholder="judul">
+					           </div>
+
+					            <div class="form-group">
+					              <label for="isi">isi</label>
+								<textarea class="form-control" id="isi" rows="3"></textarea> 
+
+								<div class="form-group">
+									<label for="tanggal">tanggal</label>
+									<input type="text" id="datepicker" class="form-control" placeholder="Tanggal">
+								</div>
+
+					           </div>
+
+					        <input type="button" class="btn btn-primary" onclick="onclk()" value="post" id="buttons"></input>
+					        <input type="button" onclick="res()" value="reset dulu" class="btn btn-danger"></input>
+					        </form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+				<div class="row mt-5 mb-5" id="forq">
+					<div class="card fors" style="width: 18rem;" id="fors">
+					  <img src="" class="card-img-top" id="preview" width="30%">
+					  <div class="card-body">
+					    <h5 class="card-title" id="judulss"></h5>
+					    <p class="card-text" id="isis"></p>
+					  </div>
+					  <div class="card-footer">
+					  	<p id="tanggals"></p>
+					  </div>
+					</div>
+				</div>	
+	</div>
+	</body>
+
+<script src="jees.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+	
+$(document).ready(function() {
+    $("#fors").hide();
+});
+
+$(document).ready(function() {
+	$("#buttons").click(function() {
+		$("#fors").show();
+	})
+})
+
+//datepicker
+$(function () {
+		$('#datepicker').datepicker({
+		autoclose: true
+	});
+	});
+
+</script>
+
+</html>
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="row products-grid">
+    <a class="product shadow-box active" href="product-link.com" data-store="STORENAME" data-price="738" target="_blank">
+        <div class="product-image">
+            <img src="img/bb.jpg" alt="">
+        </div>
+        <h4 class="product-title">Product Name</h4>
+        <div class="details">
+            <span class="price">£738.00</span>
+        </div>
+        <div class="actions">
+            <button>Buy Now</button>
+        </div>
+    </a>
+<a class="product shadow-box active" href="product-link2.com" data-store="STORENAME2" data-price="200" target="_blank">
+        <div class="product-image">
+            <img src="img/cc.jpg" alt="">
+        </div>
+        <h4 class="product-title">Product Name</h4>
+        <div class="details">
+            <span class="price">£200.00</span>
+        </div>
+        <div class="actions">
+            <button>Buy Now</button>
+        </div>
+    </a>
+</div>
+
+<select class="price-sorting type-regular" name="price-sorting">
+    <option selected disabled>Default</option>
+    <option value="l2h">Low to high</option>
+    <option value="h2l">High to low</option>
+</select>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(document).on("change", ".price-sorting", function() {
+
+    var sortingMethod = $(this).val();
+
+    if(sortingMethod == 'l2h')
+    {
+        sortProductsPriceAscending();
+    }
+    else if(sortingMethod == 'h2l')
+    {
+        sortProductsPriceDescending();
+    }
+
+});
+function sortProductsPriceAscending()
+{
+    var products = $('.product');
+    products.sort(function(a, b){ return $(a).data("price")-$(b).data("price")});
+    $(".products-grid").html(products);
+
+}
+
+function sortProductsPriceDescending()
+{
+    var products = $('.product');
+    products.sort(function(a, b){ return $(b).data("price") - $(a).data("price")});
+    $(".products-grid").html(products);
+
+}
+</script>
+</html>

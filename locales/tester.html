@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<body>
+		<form>
+		 <p id="demo"></p>
+			 <input type="text" id="aidi"></input>
+	 		 <input type="button" id="buts" value="coba" onclick="ons()"></input>
+	
+		</form>
+
+
+	</body>
+	<script type="text/javascript">
+	var adds = ["life"];
+	document.getElementById("demo").innerHTML = adds;
+
+	function ons() {
+		var addi = document.getElementById("aidi").value;
+		document.getElementById("demo").innerHTML = addi;
+		adds.push(addi);
+	}
+
+	// for (var i = 0; i <5; i++) {
+	// 	document.getElementById("aidi").value;
+	// }
+
+		// function ons(oks) {
+		// 	var oce = document.getElementById("aidi").value;
+		// 	for (var i = 0; i < oks.length; i++) {
+		// 		document.write(oce);
+		// 	}
+		// }
+
+		// var doc = document.getElementById("aidi").value;
+		// 	for (var i = 0; i <10; i++) {
+		// 		document.write(doc + "<br>");
+		// 	}
+
+		// for (var i = 0; i < 10; i++) {
+		// 	document.write("oke");
+		// }
+		// var kongko = new Array("", "", "", "", "");
+
+		// for (var i = 0; i <kongko.length; i++) {
+		// 	document.write(kongko[i] + "<br/>");
+		// }
+
+	</script>
+</html>

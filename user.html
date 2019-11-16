@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+</head>
+    <body>
+       <div class="container">
+          <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 id="aser"></h2>
+                  <input type="button" value="gaji terbesar" onclick="aktif()" class="btn btn-danger"></input>
+                  <input type="button" value="gaji terkecil" onclick="jarang()" class="btn btn-danger"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center mt-2">
+            <div class="col-md-8">
+            <h3>cari admin</h3>
+
+            <input type="search" class="form-control light-table-filter" data-table="order-table" placeholder="Filtrer" /><br>
+<table class="table table-striped order-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">no</th>
+                      <th scope="col">nama</th>
+                      <th scope="col">waktu on</th>
+                      <th scope="col">bagian</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>chris</td>
+                      <td>7 - 9 pagi</td>
+                      <td>user</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>clike</td>
+                      <td>9 - 12 siang</td>
+                      <td>posting</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>dalihan</td>
+                      <td>12 - 2 siang</td>
+                      <td>posting</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>malih</td>
+                      <td>2 - 4 sore</td>
+                      <td>hosting</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>matt</td>
+                      <td>4 - 6 sore</td>
+                      <td>hosting</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>zalihan</td>
+                      <td>6 - 8 malam</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+       </div>
+    </body>
+
+<script src="jees.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    
+$(document).ready(function() {
+    $("#fors").hide();
+});
+
+$(document).ready(function() {
+    $("#buttons").click(function() {
+        $("#fors").show();
+    })
+})
+
+//datepicker
+$(function () {
+        $('#datepicker').datepicker({
+        autoclose: true
+    });
+    });
+
+
+      const user = ["dalihan", "matt", "chris","clike", "malih", "zalihan"];
+      var i = 0;
+      var text = "";
+      while (user[i]) {
+        text += user[i] + "<br>";
+        i++;
+      }
+      document.getElementById("aser").innerHTML = text;
+
+      function aktif() {
+        user.sort();
+        document.getElementById("aser").innerHTML = user;
+      }
+
+      function jarang() {
+          user.reverse();
+          document.getElementById("aser").innerHTML = user;
+      }
+
+
+//search
+(function(document) {
+  'use strict';
+
+  var LightTableFilter = (function(Arr) {
+
+    var _input;
+
+    function _onInputEvent(e) {
+      _input = e.target;
+      var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+      Arr.forEach.call(tables, function(table) {
+        Arr.forEach.call(table.tBodies, function(tbody) {
+          Arr.forEach.call(tbody.rows, _filter);
+        });
+      });
+    }
+
+    function _filter(row) {
+      var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+      row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+
+    return {
+      init: function() {
+        var inputs = document.getElementsByClassName('light-table-filter');
+        Arr.forEach.call(inputs, function(input) {
+          input.oninput = _onInputEvent;
+        });
+      }
+    };
+  })(Array.prototype);
+
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+      LightTableFilter.init();
+    }
+  });
+
+})(document);
+
+
+</script>
+
+</html>
+
+
+
+
+

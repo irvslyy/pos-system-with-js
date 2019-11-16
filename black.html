@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Search</title>
+	<style type="text/css">
+		.text-input-wrapper {
+		  border:1px solid;
+		  background-color:white;
+		  padding:1px 6px 1px 1px;
+		  display:inline-block;
+		}
+
+		.text-input-wrapper input {
+		  border:none;
+		  background:none;
+		  outline:none;
+		  padding:0 0;
+		  margin:0 0;
+		  font:inherit;
+		}
+
+		.text-input-wrapper span {
+		  cursor:pointer;
+		  color:blue;
+		  font-weight:bold;
+		  visibility:hidden;
+		}
+	</style>
+</head>
+<body>
+	<form id="search-form" action="/search" method="get">
+    <span class="text-input-wrapper">
+        <input type="text" name="cari" size="18"><span title="Clear">&times;</span>
+    </span>
+    <input type="submit" value="Cari">
+</form>
+</body>
+
+
+<script type="text/javascript">
+	(function() {
+    var searchForm = document.getElementById('search-form'),
+        textInput = searchForm.cari,
+        clearBtn = textInput.nextSibling;
+    textInput.onkeyup = function() {
+        // Show the clear button if text input value is not empty
+        clearBtn.style.visibility = (this.value.length) ? "visible" : "hidden";
+    };
+    // Hide the clear button on click, and reset the input value
+    clearBtn.onclick = function() {
+        this.style.visibility = "hidden";
+        textInput.value = "";
+    };
+})();
+</script>
+
+
+</html>
